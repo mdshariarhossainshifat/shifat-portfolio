@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of MD Shariar Hossain Shifat, Computer Science and Engineering student at Daffodil International University.">
+  <title>MD Shariar Hossain Shifat | Portfolio</title>
+  <style>
+    :root {
+      --navy: #0b1730;
+      --navy2: #14284b;
+      --blue: #3d7bfa;
+      --cyan: #5eead4;
+      --ink: #172033;
+      --muted: #667085;
+      --paper: #f5f7fb;
+      --white: #ffffff;
+      --line: #e5eaf2;
+      --shadow: 0 18px 50px rgba(10, 25, 50, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      color: var(--ink); background: var(--paper); line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header {
+      background: rgba(11,23,48,.96); color: white; position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,.09); backdrop-filter: blur(12px);
+    }
+    nav { min-height: 72px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { font-weight: 800; letter-spacing: .04em; font-size: .98rem; }
+    .brand span { color: var(--cyan); }
+    .navlinks { display:flex; gap:22px; align-items:center; font-size:.9rem; color:#dce6f7; }
+    .navlinks a:hover { color: var(--cyan); }
+    .menu { display:none; background:none; color:white; border:1px solid #53627c; border-radius:9px; padding:7px 11px; }
+    .hero {
+      color:white; background:
+        radial-gradient(circle at 82% 18%, rgba(61,123,250,.32), transparent 30%),
+        radial-gradient(circle at 12% 95%, rgba(94,234,212,.13), transparent 32%),
+        linear-gradient(130deg, #09152c, #14284b 68%, #0b1730);
+      padding: 105px 0 100px; overflow:hidden;
+    }
+    .hero-grid { display:grid; grid-template-columns: 1.35fr .65fr; align-items:center; gap:55px; }
+    .eyebrow { color:var(--cyan); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:800; }
+    h1 { font-size:clamp(2.5rem, 6vw, 4.7rem); line-height:1.08; margin:16px 0 18px; letter-spacing:-.045em; }
+    h1 span { color:var(--cyan); }
+    .hero p { color:#d5deee; max-width:650px; font-size:1.08rem; }
+    .actions { display:flex; gap:13px; flex-wrap:wrap; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 20px; border-radius:10px; font-weight:750; border:1px solid transparent; }
+    .btn.primary { background:var(--cyan); color:#082033; }
+    .btn.secondary { border-color:#71809b; color:white; }
+    .btn:hover { transform:translateY(-2px); }
+    .hero-card {
+      border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.07);
+      border-radius:24px; padding:28px; box-shadow:0 25px 70px rgba(0,0,0,.2);
+    }
+    .monogram { width:104px; height:104px; border-radius:26px; display:grid; place-items:center;
+      background:linear-gradient(145deg,var(--cyan),#8bb8ff); color:#0b1730; font-size:2rem; font-weight:900; margin-bottom:22px; }
+    .hero-card strong { display:block; font-size:1.2rem; }
+    .hero-card small { color:#bdcbe0; }
+    .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:24px; }
+    .stat { background:rgba(255,255,255,.07); padding:14px 10px; border-radius:12px; text-align:center; }
+    .stat b { display:block; color:var(--cyan); font-size:1.25rem; }
+    .stat span { font-size:.72rem; color:#c6d1e2; }
+    section { padding:82px 0; }
+    .section-head { margin-bottom:32px; }
+    .kicker { color:#3269d6; font-weight:800; text-transform:uppercase; letter-spacing:.15em; font-size:.75rem; }
+    h2 { color:var(--navy); font-size:clamp(1.8rem,4vw,2.6rem); line-height:1.2; margin:8px 0 10px; letter-spacing:-.03em; }
+    .section-head p { color:var(--muted); max-width:680px; margin:0; }
+    .about-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:25px; }
+    .panel, .card { background:white; border:1px solid var(--line); border-radius:18px; padding:27px; box-shadow:var(--shadow); }
+    .panel p { color:#536075; margin:0; }
+    .quick-info { display:grid; gap:13px; }
+    .info-line { display:flex; justify-content:space-between; gap:15px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+    .info-line:last-child { border:0; padding:0; }
+    .info-line span { color:var(--muted); }
+    .info-line b { text-align:right; }
+    .education { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .edu-card { background:white; border:1px solid var(--line); border-radius:17px; padding:24px; box-shadow:var(--shadow); }
+    .edu-card .num { font-size:2rem; font-weight:900; color:#245cc6; letter-spacing:-.04em; }
+    .edu-card h3 { margin:5px 0; color:var(--navy); }
+    .edu-card p { margin:0; color:var(--muted); font-size:.92rem; }
+    .skills { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+    .skill-card { background:white; padding:24px; border:1px solid var(--line); border-radius:16px; }
+    .skill-card h3 { margin:0 0 8px; color:var(--navy); }
+    .skill-card p { color:var(--muted); margin:0; }
+    .tags { display:flex; flex-wrap:wrap; gap:9px; margin-top:16px; }
+    .tag { background:#edf3ff; color:#214d9b; border:1px solid #dbe7ff; padding:6px 11px; border-radius:999px; font-size:.82rem; font-weight:700; }
+    .certs { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .cert { display:flex; gap:15px; align-items:flex-start; background:white; border:1px solid var(--line); border-radius:15px; padding:20px; }
+    .cert-icon { flex:0 0 42px; height:42px; border-radius:12px; background:#eaf2ff; color:#245cc6; display:grid; place-items:center; font-size:1.2rem; font-weight:900; }
+    .cert h3 { margin:0 0 4px; font-size:1rem; color:var(--navy); }
+    .cert p { margin:0; color:var(--muted); font-size:.88rem; }
+    .goal { background:linear-gradient(135deg,#102448,#0b1730); color:white; border-radius:22px; padding:35px; }
+    .goal h2 { color:white; }
+    .goal p { color:#d0dced; max-width:850px; }
+    .goal .tags .tag { background:rgba(94,234,212,.1); color:#9af4e7; border-color:rgba(94,234,212,.22); }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .contact-item { display:flex; align-items:center; gap:14px; background:white; border:1px solid var(--line); padding:20px; border-radius:15px; }
+    .contact-item .icon { width:42px; height:42px; display:grid; place-items:center; border-radius:12px; background:#edf3ff; color:#245cc6; font-weight:900; }
+    .contact-item small { display:block; color:var(--muted); }
+    footer { background:#081329; color:#b8c5d8; padding:25px 0; text-align:center; font-size:.88rem; }
+    footer strong { color:white; }
+    @media (max-width:780px) {
+      .hero { padding:75px 0; }
+      .hero-grid, .about-grid { grid-template-columns:1fr; }
+      .hero-card { max-width:480px; }
+      .education { grid-template-columns:1fr; }
+      .navlinks { display:none; position:absolute; top:72px; left:0; right:0; padding:18px 24px; background:#0b1730; flex-direction:column; align-items:flex-start; }
+      .navlinks.open { display:flex; }
+      .menu { display:block; }
+    }
+    @media (max-width:560px) {
+      .skills, .certs, .contact-grid { grid-template-columns:1fr; }
+      section { padding:62px 0; }
+      .wrap { width:min(100% - 30px,1120px); }
+      .stat-row { gap:7px; }
+      .stat { padding:11px 5px; }
+      .stat b { font-size:1.05rem; }
+      .stat span { font-size:.66rem; }
+      .goal { padding:25px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#home">SHIFAT<span>.</span></a>
+        <button class="menu" id="menuBtn" aria-label="Toggle navigation">Menu</button>
+        <div class="navlinks" id="navlinks">
+          <a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a>
+          <a href="#certificates">Certificates</a><a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Personal Portfolio</div>
+          <h1>MD Shariar Hossain <span>Shifat</span></h1>
+          <p>Computer Science &amp; Engineering student at Daffodil International University, building a strong foundation in programming and modern software development.</p>
+          <div class="actions">
+            <a class="btn primary" href="#contact">Contact Me</a>
+            <a class="btn secondary" href="https://github.com/shifatkhan111000" target="_blank" rel="noopener">View GitHub</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="monogram">SH</div>
+          <strong>Computer Science &amp; Engineering</strong>
+          <small>Daffodil International University · Bangladesh</small>
+          <div class="stat-row">
+            <div class="stat"><b>3.25</b><span>CGPA / 4.00</span></div>
+            <div class="stat"><b>4.94</b><span>SSC GPA / 5.00</span></div>
+            <div class="stat"><b>5.00</b><span>HSC GPA / 5.00</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Introduction</div><h2>About Me</h2><p>A student focused on learning, improving practical skills, and growing through technology.</p></div>
+        <div class="about-grid">
+          <div class="panel">
+            <p>I am MD Shariar Hossain Shifat, a Computer Science and Engineering student at Daffodil International University. I am interested in programming, software development, and modern technology. I have studied Python programming fundamentals and am developing my knowledge of Flutter and Firebase. I value continuous learning, responsibility, teamwork, and problem-solving.</p>
+          </div>
+          <div class="panel quick-info">
+            <div class="info-line"><span>University</span><b>Daffodil International University</b></div>
+            <div class="info-line"><span>Department</span><b>Computer Science &amp; Engineering</b></div>
+            <div class="info-line"><span>Location</span><b>Bangladesh</b></div>
+            <div class="info-line"><span>Interests</span><b>Programming · Software · AI</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Academic Background</div><h2>Education &amp; Results</h2><p>My academic journey and examination results.</p></div>
+        <div class="education">
+          <article class="edu-card"><div class="num">3.25<span style="font-size:1rem">/4.00</span></div><h3>B.Sc. in CSE</h3><p>Daffodil International University</p></article>
+          <article class="edu-card"><div class="num">5.00<span style="font-size:1rem">/5.00</span></div><h3>Higher Secondary Certificate</h3><p>Cantonment Public School and College, Saidpur</p></article>
+          <article class="edu-card"><div class="num">4.94<span style="font-size:1rem">/5.00</span></div><h3>Secondary School Certificate</h3><p>Cantonment Public School and College, Saidpur</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">What I’m Learning</div><h2>Technical Skills &amp; Interests</h2><p>Foundational knowledge and areas I am actively developing.</p></div>
+        <div class="skills">
+          <article class="skill-card"><h3>Python Programming</h3><p>Completed foundational learning in Python programming and core concepts.</p><div class="tags"><span class="tag">Python Fundamentals</span><span class="tag">Problem Solving</span></div></article>
+          <article class="skill-card"><h3>Mobile App Development</h3><p>Developing knowledge of mobile application development with Flutter and Firebase.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span></div></article>
+          <article class="skill-card"><h3>Web Development</h3><p>Exploring web development concepts and building knowledge of modern web technologies.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Web Fundamentals</span></div></article>
+          <article class="skill-card"><h3>Professional Skills</h3><p>Focused on improving communication, teamwork, time management, and continuous learning.</p><div class="tags"><span class="tag">Teamwork</span><span class="tag">Communication</span><span class="tag">Time Management</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Learning &amp; Development</div><h2>Certificates &amp; Courses</h2><p>Courses completed through GoEdu.</p></div>
+        <div class="certs">
+          <article class="cert"><div class="cert-icon">01</div><div><h3>Python Programming Fundamentals</h3><p>GoEdu · Course completed</p></div></article>
+          <article class="cert"><div class="cert-icon">02</div><div><h3>Cyber Security Fundamentals</h3><p>GoEdu · Course completed</p></div></article>
+          <article class="cert"><div class="cert-icon">03</div><div><h3>Mastering Google for Efficient Information Retrieval</h3><p>GoEdu · Course completed</p></div></article>
+          <article class="cert"><div class="cert-icon">04</div><div><h3>Integrating Soft and Hard Skills for Career Success</h3><p>GoEdu · Course completed</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="goals">
+      <div class="wrap">
+        <div class="goal">
+          <div class="kicker">Looking Ahead</div>
+          <h2>Career Goals</h2>
+          <p>My long-term goal is to become a skilled software engineer and web/mobile application developer. I want to strengthen my programming fundamentals, gain practical experience, explore AI-driven solutions, and contribute to useful digital products. I am also interested in learning how to work effectively with international teams and remote opportunities.</p>
+          <div class="tags"><span class="tag">Software Engineering</span><span class="tag">Web Development</span><span class="tag">Mobile Apps</span><span class="tag">Artificial Intelligence</span><span class="tag">Continuous Learning</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Get In Touch</div><h2>Contact Me</h2><p>Feel free to connect with me for academic, learning, or professional opportunities.</p></div>
+        <div class="contact-grid">
+          <a class="contact-item" href="mailto:shifatappleapple@gmail.com"><div class="icon">@</div><div><small>Email</small><b>shifatappleapple@gmail.com</b></div></a>
+          <a class="contact-item" href="https://github.com/shifatkhan111000" target="_blank" rel="noopener"><div class="icon">GH</div><div><small>GitHub</small><b>github.com/shifatkhan111000</b></div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap">© <span id="year"></span> <strong>MD Shariar Hossain Shifat</strong>. All rights reserved.</div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const navlinks = document.getElementById('navlinks');
+    menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navlinks.classList.remove('open')));
+  </script>
+</body>
+</html>
